@@ -1,0 +1,1 @@
+export type CardType = 'sm' | 'md'| 'lg' | 'bg';
