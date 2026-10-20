@@ -25,6 +25,7 @@ root.render(
       type="lg"
       image="https://picsum.photos/500/800"
       cardTitle="Car Insurance"
+      cardDate="2023-08-15"
       content="AXA Car insurance is tailored to your needs. Get your car insurance quote. And if you've got more than one car registered at your home address, check out our MultiCar discount."
       subhead="Member online" />
   </div>);

@@ -1,0 +1,34 @@
+$card-sub-title-font-size: 14px;
+$card-sub-title-font-weight: 600;
+$card-sub-title-font-color: red;
+$card-title-font-size: 24px;
+$card-title-font-weight: 700;
+
+.card-container {
+    display: flex;
+}
+
+.card-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+}
+
+.card-subtitle {
+    font-weight: $card-sub-title-font-weight;
+    font-size: $card-sub-title-font-size;
+    text-transform: uppercase;
+    color: $card-sub-title-font-color;
+}
+
+.card-title {
+    font-weight: $card-title-font-weight;
+    font-size: $card-title-font-size;
+    text-transform: capitalize;
+    margin: 0px 5px 5px 0px;
+}
