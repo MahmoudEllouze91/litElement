@@ -2,6 +2,7 @@ import { html, LitElement, unsafeCSS } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { CardType, LinkProp } from './Card.type';
 import '../Image/Image';
+import '../Card-link/Card-link';
 import styles from './Card.style.scss?inline';
 
 
@@ -48,7 +49,16 @@ export class DemoCard extends LitElement {
                         <h5 class="card-title">${this.cardTitle}</h5>
                         <p>${this.content}</p>
                         
-                        ${this.links.map((link: LinkProp) => html`<a href=${link.url}>${link.label}</a>`)}
+                        ${this.links.map((link: LinkProp) => 
+                            html`
+                                <demo-card-link
+                                    type=${link.type}
+                                    url=${link.url}
+                                    label=${link.label}
+                                    variation=${link.variation}
+                                    .isInverse=${this.isInverse}
+                                ></demo-card-link>
+                            `)}
                     </div>
                 </div>
             </div>

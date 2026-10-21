@@ -1,25 +1,3 @@
-// In a bigger project, these variables would be in a separate file and imported into this one.
-$card-sub-title-font-size: 14px;
-$card-sub-title-font-weight: 600;
-$card-sub-title-font-color: red;
-$card-title-font-size: 24px;
-$card-title-font-weight: 700;
-
-$sm-image-width: 88px;
-$sm-image-height: 88px;
-$md-image-width: 185px;
-$md-image-height: 185px;
-$lg-image-width: 450px;
-$lg-image-height: 407px;
-$bg-image-width: 525px;
-$bg-image-height: 407px;
-
-
-$sm-text-max-width: 300px;
-$md-text-max-width: 400px;
-$lg-text-max-width: 400px;
-$text-min-width: 210px;
-
 :host {
     display: block;
 }
@@ -29,7 +7,7 @@ $text-min-width: 210px;
     container-name: card;
 }
 :host([type='lg']) .card-query-container {
-    max-width: $lg-image-width;
+    max-width: var(--card-image-lg-width);
 }
 
 .card-container {
@@ -49,7 +27,7 @@ $text-min-width: 210px;
 
 .card-image-container {
     display: block;
-    min-width: $sm-image-width;
+    min-width: var(--card-image-sm-width);
     unicode-bidi: isolate;
     overflow: hidden;
 }
@@ -62,19 +40,19 @@ $text-min-width: 210px;
 
 // setting the max-width and min-width of the card text container based on the card type
 :host([type='lg']) .card-text-container {
-    max-width: $lg-text-max-width;
-    min-width: $text-min-width;
+    max-width: var(--card-text-lg-max-width);
+    min-width: var(--card-text-min-width);
 }
 
 
 :host([type='md']) .card-text-container {
-    max-width: $md-text-max-width;
-    min-width: $text-min-width;
+    max-width: var(--card-text-md-max-width);
+    min-width: var(--card-text-min-width);
 }
 
 :host([type='sm']) .card-text-container {
-    max-width: $sm-text-max-width;
-    min-width: $text-min-width;
+    max-width: var(--card-text-sm-max-width);
+    min-width: var(--card-text-min-width);
 }
 
 
@@ -84,15 +62,15 @@ $text-min-width: 210px;
 }
 
 .card-subtitle {
-    font-weight: $card-sub-title-font-weight;
-    font-size: $card-sub-title-font-size;
+    font-weight: var(--card-subtitle-font-weight);
+    font-size: var(--card-subtitle-font-size);
     text-transform: uppercase;
-    color: $card-sub-title-font-color;
+    color: var(--card-subtitle-font-color);
 }
 
 .card-title {
-    font-weight: $card-title-font-weight;
-    font-size: $card-title-font-size;
+    font-weight: var(--card-title-font-weight);
+    font-size: var(--card-title-font-size);
     text-transform: capitalize;
     margin: 0px 5px 5px 0px;
 }
@@ -100,16 +78,16 @@ $text-min-width: 210px;
 // dynamically setting the image size based on the card type
 // To be discussed with the po on the wether the text box size should be fixed or dynamic for the UI/UX team
 .image-contain-lg {
-    max-height: $lg-image-height;
-    max-width: $lg-image-width;
+    max-height: var(--card-image-lg-height);
+    max-width: var(--card-image-lg-width);
 }
 .image-contain-md {
-    height: $md-image-height;
-    max-width: $md-image-width;
+    height: var(--card-image-md-height);
+    max-width: var(--card-image-md-width);
 }
 .image-contain-sm {
-    height: $sm-image-height;
-    max-width: $sm-image-width;
+    height: var(--card-image-sm-height);
+    max-width: var(--card-image-sm-width);
 }
     
 .image-contain-bg {
@@ -158,7 +136,7 @@ $text-min-width: 210px;
     }
     .card-image-container{
         width: 100%;
-        height: $bg-image-height;
+        height: var(--card-image-bg-height);
     }
     .card-text-container {
         position: absolute;
