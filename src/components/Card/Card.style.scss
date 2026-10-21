@@ -132,6 +132,10 @@
         margin-left: var(--card-content-padding);
     }
 }
+// adding overwrite for the inverted layout when the card type is set to large
+:host([type='lg']) .inverted .card-image-container {
+    margin-left: 0;
+}
 
 //overwriting the default styles for the card component when the image becomes the background
 .background {

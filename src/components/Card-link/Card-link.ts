@@ -24,6 +24,10 @@ export class DemoCardLink extends LitElement {
 	  text-align: center;
 	  text-decoration: none;
 	  cursor: pointer;
+	  margin-top: 5px;
+	}
+	.card-link-button:first{
+	   margin-top: 0px;
 	}
 	.card-link-button.nightmode {
 		background-color: var(--card-link-button-bg-color-inverted);
