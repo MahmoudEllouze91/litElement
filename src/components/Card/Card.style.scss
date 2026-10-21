@@ -13,6 +13,7 @@
 .card-container {
     display: flex;
     align-items: center;
+    padding: var(--card-container-padding);
 }
 
 :host([type='lg']) .card-container {
@@ -30,6 +31,7 @@
     min-width: var(--card-image-sm-width);
     unicode-bidi: isolate;
     overflow: hidden;
+    margin-right: var(--card-content-padding);
 }
 
 .card-text-container {
@@ -125,6 +127,10 @@
         flex-direction: row-reverse;
         justify-content: space-between;
     }
+    .card-image-container {
+        margin-right: 0px;
+        margin-left: var(--card-content-padding);
+    }
 }
 
 //overwriting the default styles for the card component when the image becomes the background
@@ -133,10 +139,15 @@
         position: relative;
         width: 100%;
         height: 100%;
+        padding: 0px;
     }
     .card-image-container{
         width: 100%;
         height: var(--card-image-bg-height);
+        margin: 0px;
+    }
+    .card-text-content {
+        padding: var(--card-content-padding);
     }
     .card-text-container {
         position: absolute;

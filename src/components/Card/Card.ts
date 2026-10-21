@@ -24,7 +24,9 @@ export class DemoCard extends LitElement {
     //adding SCSS file sing unsafeCSS to apply the styles to the card component
     static styles = unsafeCSS(styles);
     
-    //TODO: Add link component for link and button
+    //Should the inverse mode of the button follow the inverse mode of the card?
+    //The usecase is anmbiguous depening on if we follow the storybook of AXA or the document sent.
+    //It needs to be discussed
     render() {
         return html`
             <div class="card-query-container ${this.type == 'bg' ? 'background' : ''}  ${this.fullCard ? 'full-card' : ''} ${this.isInverse ? 'nightmode' : ''} ${this.inverted ? 'inverted' : ''}">
@@ -42,23 +44,25 @@ export class DemoCard extends LitElement {
                     `: html``}      
 
                     <div class="card-text-container">
-                        <div class="card-header">
-                            <div class="card-subtitle">${this.subhead}</div>
-                            ${this.cardDate ? html`<div>&nbsp- ${this.cardDate}</div>` : ''}
+                        <div class="card-text-content">
+                            <div class="card-header">
+                                <div class="card-subtitle">${this.subhead}</div>
+                                ${this.cardDate ? html`<div>&nbsp- ${this.cardDate}</div>` : ''}
+                            </div>
+                            <h5 class="card-title">${this.cardTitle}</h5>
+                            <p>${this.content}</p>
+                            
+                            ${this.links.map((link: LinkProp) => 
+                                html`
+                                    <demo-card-link
+                                        type=${link.type}
+                                        url=${link.url}
+                                        label=${link.label}
+                                        variation=${link.variation}
+                                        .isInverse=${this.isInverse}
+                                    ></demo-card-link>
+                                `)}
                         </div>
-                        <h5 class="card-title">${this.cardTitle}</h5>
-                        <p>${this.content}</p>
-                        
-                        ${this.links.map((link: LinkProp) => 
-                            html`
-                                <demo-card-link
-                                    type=${link.type}
-                                    url=${link.url}
-                                    label=${link.label}
-                                    variation=${link.variation}
-                                    .isInverse=${this.isInverse}
-                                ></demo-card-link>
-                            `)}
                     </div>
                 </div>
             </div>

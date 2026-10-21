@@ -1,6 +1,7 @@
 :root {
     --primary-text-color: #fff;
 
+    --card-container-padding: 15px;
     --card-subtitle-font-size: 14px;
     --card-subtitle-font-weight: 600;
     --card-subtitle-font-color: red;
@@ -20,6 +21,8 @@
     --card-text-md-max-width: 400px;
     --card-text-lg-max-width: 400px;
     --card-text-min-width: 210px;
+    //Much to be discussed about how dynamic tha padding should be for the card text container, for now we will keep it fixed
+    --card-content-padding: 15px;
 
     --card-link-button-bg-color: #ec7e00;
     --card-link-button-bg-color-inverted: #fff;
