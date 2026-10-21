@@ -1,17 +1,31 @@
 # AXA Lit Card Component
 
 This project was made as an exercice for an interview. It contains a card component that follows the specifications of th AXA design system using Lit to render it and Storybook to demo it. The whole project was built with React Vite and unit tested with Jest.
+Here are some examples of the rendered component with different props.
+
+- Medium image in dark mode
+<p><img src="./images/Preview-night-default.png" height="200"></p>
+- Medium image in light mode inverted
+<p><img src="./images/Preview-inverse-day.png" height="200"></p>
+- Background image in light mode
+</p><img src="./images/Preview-bg-day.png" height="200"></p>
+
 
 ## Dev talk (French)
-- J'ai rencontré ma prmière difficulté lors de l'installation de Lit avec le framework React NextJS. Lors du lancement en mode Dev, le programme retournait des erreures sur la partie declaration des propriétés avec les decorateurs du type(@property({type: Number})). J'ai opté a utiliser Vite qui avait accepté les deux types de déclarations (avec décoration et standard).
-- J'ai trouvé une ambiguité dans le document des requirements. Plus spécifiquement sur le rendu le la Card avec une image en lg. Les deux images en dessous montrent ce qui me semble etre le layout d'une image lg dans deux situation differente sans que je ne sache le cas d'utilisation de chacune. En temps normal, ce point aura été discuté avec l'equipe UI/UX ou le Product Owner pour definir le cas d'usage.
-![plot](./images/Screenshot-image-lg.png)
-![plot](./images/Screenshot-image-full-width.png)
-Dans le doute, j'ai rajouté une propriété booleenne "fullCard" qui change la carte entre les deux version.
-- Dans les conditions de cette démo, j'ai laissé le composant Card sans width ou max width definit pour qu'elle remplisse le balise parente. Cette approche est a discuter avec le tech-lead en temps normal avant de commencer a développer.
-- Je n'ai pas trouvé comment intégrer la fonctionalité breakpoint. Son cas d'usage m'a semblé un peu flou dans le Storybook d'AXA. J'ai voulu l'ajouter directement dans le CSS du composant mais sa valeur était dynamique. J'ai du faire recours a l'IA Copilot qui avait suggéré d'ajouter un eventListner dans le shadowRoot du composant. Je n'ai pas ajouté le code suite aux conditions demandées lors de cet exercice.
-- Toute la partie de configuration des propriété isInverse, inverted, fullCard avait été developpée initialement dans la partie typescript en créant une fonction qui retournait le style de chaque balise en fonction des paramètres en entré. Cette fonction est devenue très rapidement compliqué. J'ai opté a tout refaire et a utiliser les overwrite des classes CSS.
--J'ai fait en sorte que le theme sombre du bouton et du lien suive le theme de la carte suivant les exigences mis dans le document. C'est normalement un sujet a discuter car il y'a une petite ambiquité entre la maquette du document et les propriété du Storybook AXA.
+- J’ai rencontré ma première difficulté lors de l’installation de Lit avec le framework React/Next.js. Au lancement en mode développement, le programme retournait des erreurs concernant la déclaration des propriétés à l’aide de décorateurs, par exemple @property({ type: Number }). J’ai donc opté pour Vite, qui acceptait les deux types de déclarations : avec décorateurs et avec une syntaxe standard.
+
+- J’ai relevé une ambiguïté dans le document des requirements, plus précisément concernant le rendu de la Card avec une image en taille lg. Les deux captures d’écran ci-dessous illustrent ce qui me semble être deux layouts possibles pour une image lg, sans que je puisse déterminer le cas d’utilisation de chacun. En temps normal, ce point aurait été discuté avec l’équipe UI/UX ou le Product Owner afin de définir le comportement attendu.
+</p><img src="./images/Screenshot-image-full-width.png" height="200"><img src="./images/Screenshot-image-lg.png" height="200"></p>
+
+Dans le doute, j’ai ajouté une propriété booléenne fullCard, qui permet de basculer la carte entre les deux versions.
+
+- Dans le cadre de cette démo, j’ai laissé la largeur (width ou max-width) du composant Card non définie afin qu’il occupe toute la largeur disponible dans son élément parent. En conditions réelles, cette approche aurait dû être discutée avec le Tech Lead avant de commencer le développement.
+
+- Je n’ai pas réussi à déterminer comment intégrer la fonctionnalité de breakpoint. Son cas d’utilisation m’a semblé relativement flou dans le Storybook d’AXA. J’ai d’abord envisagé de l’implémenter directement dans le CSS du composant, mais sa valeur étant dynamique, cette approche ne semblait pas adaptée. J’ai alors sollicité Copilot, qui m’a suggéré d’ajouter un eventListener au shadowRoot du composant. Je n’ai finalement pas intégré cette solution, compte tenu des contraintes imposées dans le cadre de cet exercice.
+
+- Initialement, toute la logique de configuration des propriétés isInverse, inverted et fullCard était implémentée en TypeScript, à l’aide d’une fonction chargée de retourner le style de chaque élément en fonction des paramètres d’entrée. Cette fonction est rapidement devenue complexe et difficile à maintenir. J’ai donc choisi de revoir cette approche et d’utiliser des surcharges de classes CSS à la place.
+
+- J’ai veillé à ce que le thème sombre du bouton et du lien suive celui de la carte, conformément aux exigences du document. En conditions réelles, ce point mériterait toutefois d’être discuté, car il existe une légère ambiguïté entre les maquettes du document et les propriétés disponibles dans le Storybook d’AXA.
 
 ## Requirements
 

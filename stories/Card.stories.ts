@@ -52,6 +52,9 @@ const meta: Meta = {
       control: { type: 'select' },
       options: ['sm', 'md', 'lg', 'bg'],
     },
+    cardDate: {
+      control: { type: 'text' },
+    },
   },
 };
 
