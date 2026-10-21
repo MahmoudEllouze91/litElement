@@ -1,1 +1,0 @@
-export type SizeConversion = 'sm' | 'md'| 'lg' | 'bg';
