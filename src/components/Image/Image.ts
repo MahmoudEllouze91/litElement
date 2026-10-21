@@ -1,18 +1,9 @@
-import {html, css, LitElement} from 'lit';
-import {customElement, property} from 'lit/decorators.js';
-import { SizeConversion } from './Image.type';
-
-//Adding a sizeMap to convert the size prop to actual pixel values for the image component
-const sizeMap: Record<SizeConversion, { height: string; width: string }> = {
-  sm: { height: '88px', width: '88px' },
-  md: { height: '185px', width: '185px' },
-  lg: { height: '450px', width: '407px' },
-  bg: { height: '440px', width: '264px' },
-};
+import { html, css, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 
 @customElement('demo-image')
 export class DemoImage extends LitElement {
-  
+
   //Setting up the properties of Image Component following the usecase of Storybook args
   @property({ type: String }) type = 'lg';
   @property({ type: String }) imageContent = '';
@@ -30,11 +21,13 @@ export class DemoImage extends LitElement {
   render() {
     return html`
     <div>
-        <img
+      <div>
+         <img
           src=${this.imageContent}
-          alt=${this.imageAlt}
-          style="height: ${sizeMap[this.type as SizeConversion].height}; width: ${sizeMap[this.type as SizeConversion].width};"
+           alt=${this.imageAlt}
+           style="height: 100%; width: 100%; aspect-ratio: 1/1; object-fit: cover;"
         />
+      </div>
     </div>`;
   }
 }

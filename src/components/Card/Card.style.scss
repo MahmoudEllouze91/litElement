@@ -1,11 +1,57 @@
+// In a bigger project, these variables would be in a separate file and imported into this one.
 $card-sub-title-font-size: 14px;
 $card-sub-title-font-weight: 600;
 $card-sub-title-font-color: red;
 $card-title-font-size: 24px;
 $card-title-font-weight: 700;
 
+$sm-image-width: 88px;
+$sm-image-height: 88px;
+$md-image-width: 185px;
+$md-image-height: 185px;
+$lg-image-width: 450px;
+$lg-image-height: 407px;
+$bg-image-width: 525px;
+$bg-image-height: 407px;
+
+
+$sm-text-max-width: 300px;
+$md-text-max-width: 400px;
+$lg-text-max-width: 400px;
+$text-min-width: 210px;
+
+:host {
+    display: block;
+}
+
+.card-query-container {
+    container-type: inline-size;
+    container-name: card;
+}
+:host([type='lg']) .card-query-container {
+    max-width: $lg-image-width;
+}
+
 .card-container {
     display: flex;
+    align-items: center;
+}
+
+:host([type='lg']) .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    :host([fullCard=true]) .card-container {
+        align-items: stretch;
+    }
+}
+
+.card-image-container {
+    display: block;
+    min-width: $sm-image-width;
+    unicode-bidi: isolate;
+    overflow: hidden;
 }
 
 .card-text-container {
@@ -13,6 +59,24 @@ $card-title-font-weight: 700;
     flex-direction: column;
     justify-content: center;
 }
+
+// setting the max-width and min-width of the card text container based on the card type
+:host([type='lg']) .card-text-container {
+    max-width: $lg-text-max-width;
+    min-width: $text-min-width;
+}
+
+
+:host([type='md']) .card-text-container {
+    max-width: $md-text-max-width;
+    min-width: $text-min-width;
+}
+
+:host([type='sm']) .card-text-container {
+    max-width: $sm-text-max-width;
+    min-width: $text-min-width;
+}
+
 
 .card-header {
     display: flex;
@@ -31,4 +95,80 @@ $card-title-font-weight: 700;
     font-size: $card-title-font-size;
     text-transform: capitalize;
     margin: 0px 5px 5px 0px;
+}
+
+// dynamically setting the image size based on the card type
+// To be discussed with the po on the wether the text box size should be fixed or dynamic for the UI/UX team
+.image-contain-lg {
+    max-height: $lg-image-height;
+    max-width: $lg-image-width;
+}
+.image-contain-md {
+    height: $md-image-height;
+    max-width: $md-image-width;
+}
+.image-contain-sm {
+    height: $sm-image-height;
+    max-width: $sm-image-width;
+}
+    
+.image-contain-bg {
+    height: 100%;
+    width: 100%;
+}
+
+//overwriting the default styles for the card when the component is set to full view mode
+:host([type='lg']) .card-query-container.full-card .card-text-container {
+    max-width: 100%;
+}
+:host([type='lg']) .card-query-container.full-card .image-contain-lg {
+    max-width: 100%;
+}
+:host([type='lg']) .card-query-container.full-card {
+    max-width: 100%;
+}
+//overwriting the default styles for the card component when darkmode is enabled
+.nightmode {
+    background-color: #1a1a1a;
+    color: white;
+
+    .card-title {
+        color: white;
+    }
+
+    .card-subtitle {
+        color: white;
+    }
+}
+
+//overwriting the default styles for the card component when the layout is inverted
+.inverted {
+    .card-container {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+}
+
+//overwriting the default styles for the card component when the image becomes the background
+.background {
+    .card-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    .card-image-container{
+        width: 100%;
+        height: $bg-image-height;
+    }
+    .card-text-container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+    }
 }
