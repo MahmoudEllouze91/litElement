@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite src",
     "build": "vite build",
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -24,9 +25,13 @@
     "@vitest/browser-playwright": "latest",
     "@vitest/coverage-v8": "latest",
     "@web/test-runner": "^1.0.0",
+    "jest": "^30.5.2",
+    "jest-environment-jsdom": "^30.5.2",
     "playwright": "latest",
     "sass-embedded": "^1.105.2",
     "storybook": "^10.6.3",
+    "ts-jest": "^29.4.15",
+    "typescript": "^5.9.3",
     "vite": "^6",
     "vitest": "latest"
   }

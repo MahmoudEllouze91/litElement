@@ -47,11 +47,12 @@ export class DemoCard extends LitElement {
                         <div class="card-text-content">
                             <div class="card-header">
                                 <div class="card-subtitle">${this.subhead}</div>
-                                ${this.cardDate ? html`<div>&nbsp- ${this.cardDate}</div>` : ''}
+                                ${this.cardDate && !(this.type == 'sm' || (this.type == 'lg' && !this.fullCard)) ? html`<div>&nbsp- ${this.cardDate}</div>` : ''}
                             </div>
                             <h5 class="card-title">${this.cardTitle}</h5>
                             <p>${this.content}</p>
-                            
+                            ${this.cardDate && (this.type == 'sm' || (this.type == 'lg' && !this.fullCard)) ? html`<div>${this.cardDate}</div>` : ''}
+                            <div #testo>
                             ${this.links.map((link: LinkProp) => 
                                 html`
                                     <demo-card-link
@@ -62,6 +63,7 @@ export class DemoCard extends LitElement {
                                         .isInverse=${this.isInverse}
                                     ></demo-card-link>
                                 `)}
+                            </div>
                         </div>
                     </div>
                 </div>
