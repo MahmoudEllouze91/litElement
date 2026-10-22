@@ -52,7 +52,7 @@ export class DemoCard extends LitElement {
                             <h5 class="card-title">${this.cardTitle}</h5>
                             <p>${this.content}</p>
                             ${this.cardDate && (this.type == 'sm' || (this.type == 'lg' && !this.fullCard)) ? html`<div>${this.cardDate}</div>` : ''}
-                            <div #testo>
+                            <div>
                             ${this.links.map((link: LinkProp) => 
                                 html`
                                     <demo-card-link
